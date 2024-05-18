@@ -1,0 +1,148 @@
+﻿@model IEnumerable<EmployeeManagementSystem.Models.LeaveApplication>
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<p>
+	<a asp-action="Create" class="btn btn-primary mt-3"><i class="fa fa-plus"></i> Add New Leave Application</a>
+</p>
+<div class="card">
+	<div class="card-header">
+		<h3 class="card-title">Leave Application List</h3>
+	</div>
+	<!-- /.card-header -->
+	<div class="card-body">
+		<table id="example" class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>
+						@Html.DisplayNameFor(model => model.Employee)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.NoOfDays)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.StartDate)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.EndDate)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Duration)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.LeaveType)
+					</th>
+					@* <th>
+						@Html.DisplayNameFor(model => model.Attachment)
+					</th> *@
+					<th>
+						@Html.DisplayNameFor(model => model.Description)
+					</th>
+					<th>
+						@Html.DisplayNameFor(model => model.Status)
+					</th>
+					<th>
+						Action
+					</th>
+					@*  <th>
+					@Html.DisplayNameFor(model => model.ApprovedById)
+					</th>
+					<th>
+					@Html.DisplayNameFor(model => model.ApprovedOn)
+					</th>
+					<th>
+					@Html.DisplayNameFor(model => model.CreatedById)
+					</th>
+					<th>
+					@Html.DisplayNameFor(model => model.CreatedOn)
+					</th>
+					<th>
+					@Html.DisplayNameFor(model => model.ModifiedById)
+					</th>
+					<th>
+					@Html.DisplayNameFor(model => model.ModifiedOn)
+					</th> *@
+					
+				</tr>
+			</thead>
+			<tbody>
+				@foreach (var item in Model)
+				{
+					<tr>
+						<td>
+							@Html.DisplayFor(modelItem => item.Employee.FullName)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.NoOfDays)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.StartDate)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.EndDate)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Duration.Description)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.LeaveType.Name)
+						</td>
+						@* <td>
+							@Html.DisplayFor(modelItem => item.Attachment)
+						</td> *@
+						<td>
+							@Html.DisplayFor(modelItem => item.Description)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Status.Description)
+						</td>
+						@*  <td>
+					@Html.DisplayFor(modelItem => item.ApprovedById)
+					</td>
+					<td>
+					@Html.DisplayFor(modelItem => item.ApprovedOn)
+					</td>
+					<td>
+					@Html.DisplayFor(modelItem => item.CreatedById)
+					</td>
+					<td>
+					@Html.DisplayFor(modelItem => item.CreatedOn)
+					</td>
+					<td>
+					@Html.DisplayFor(modelItem => item.ModifiedById)
+					</td>
+					<td>
+					@Html.DisplayFor(modelItem => item.ModifiedOn)
+					</td> *@
+						@* <td>
+							<a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
+							<a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
+							<a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+							<a asp-action="ApproveLeave" asp-route-id="@item.Id">Approve></a>
+	
+						</td> *@
+
+						<td>
+							<div class="btn-group">
+								<button type="button" class="btn btn-info">Action</button>
+								<button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+									<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<div class="dropdown-menu" role="menu">
+									<a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a>
+									<a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i> View</a>
+									<a class="dropdown-item"  asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i> Delete</a>
+									
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" asp-action="ApproveLeave" asp-route-id="@item.Id"><i class="fa fa-check"></i>Approve</a>
+								</div>
+							</div>
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>
