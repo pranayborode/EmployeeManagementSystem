@@ -1,20 +1,16 @@
 ﻿@model IEnumerable<EmployeeManagementSystem.Models.LeaveApplication>
 
 @{
-	ViewData["Title"] = "Index";
+	ViewData["Title"] = "Approved Leave Applications";
 }
 
-<p>
-	<a asp-action="Create" class="btn btn-primary mt-3"><i class="fa fa-plus"></i> Add New Leave Application</a>
-</p>
+
 <div class="card">
 	<div class="card-header">
-		<h3 class="card-title">Leave Application List</h3>
+		<h3 class="card-title">Approved Leave Application List</h3>
 	</div>
 	<!-- /.card-header -->
 	<div class="card-body">
-		@if (Model.Any())
-		{
 		<table id="example" class="table table-bordered table-striped">
 			<thead>
 				<tr>
@@ -37,7 +33,7 @@
 						@Html.DisplayNameFor(model => model.LeaveType)
 					</th>
 					@* <th>
-						@Html.DisplayNameFor(model => model.Attachment)
+					@Html.DisplayNameFor(model => model.Attachment)
 					</th> *@
 					<th>
 						@Html.DisplayNameFor(model => model.Description)
@@ -66,15 +62,13 @@
 					<th>
 					@Html.DisplayNameFor(model => model.ModifiedOn)
 					</th> *@
-					
+
 				</tr>
 			</thead>
 			<tbody>
-				
 				@foreach (var item in Model)
 				{
-					
-						<tr>
+					<tr>
 						<td>
 							@Html.DisplayFor(modelItem => item.Employee.FullName)
 						</td>
@@ -94,12 +88,12 @@
 							@Html.DisplayFor(modelItem => item.LeaveType.Name)
 						</td>
 						@* <td>
-							@Html.DisplayFor(modelItem => item.Attachment)
-						</td> *@
+					@Html.DisplayFor(modelItem => item.Attachment)
+					</td> *@
 						<td>
 							@Html.DisplayFor(modelItem => item.Description)
 						</td>
-						<td>
+						<td style="color:green">
 							@Html.DisplayFor(modelItem => item.Status.Description)
 						</td>
 						@*  <td>
@@ -121,12 +115,12 @@
 					@Html.DisplayFor(modelItem => item.ModifiedOn)
 					</td> *@
 						@* <td>
-							<a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
-							<a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
-							<a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
-							<a asp-action="ApproveLeave" asp-route-id="@item.Id">Approve></a>
-	
-						</td> *@
+					<a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
+					<a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>
+					<a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i></a>
+					<a asp-action="ApproveLeave" asp-route-id="@item.Id">Approve></a>
+
+					</td> *@
 
 						<td>
 							<div class="btn-group">
@@ -135,27 +129,16 @@
 									<span class="sr-only">Toggle Dropdown</span>
 								</button>
 								<div class="dropdown-menu" role="menu">
-									<a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a>
-									<a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i> View</a>
-									<a class="dropdown-item"  asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i> Delete</a>
 									
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" asp-action="ApproveLeave" asp-route-id="@item.Id"><i class="fa fa-check"></i>Approve</a>
-									<a class="dropdown-item" asp-action="RejectLeave" asp-route-id="@item.Id"><i class="fa fa-check"></i>Reject</a>
+									<a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i> View</a>
+									<a class="dropdown-item" asp-action="RejectLeave" asp-route-id="@item.Id"><i class="fa fa-eye"></i>Reject</a>
+									
 								</div>
 							</div>
 						</td>
-						</tr>
-					
-					
+					</tr>
 				}
-				
 			</tbody>
 		</table>
-				}
-		else
-		{
-		<p>No data available in List</p>
-		}
 	</div>
 </div>

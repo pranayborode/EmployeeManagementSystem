@@ -1,13 +1,13 @@
 ﻿@model EmployeeManagementSystem.Models.LeaveApplication
 
 @{
-	ViewData["Title"] = "Approve Leave";
+	ViewData["Title"] = "Reject Leave";
 }
 
-<form asp-action="ApproveLeave" method="post">
+<form asp-action="RejectLeave" method="post">
 	<div class="card">
 		<div class="card-header">
-			<h3 class="card-title">Approve Leave Application Details</h3>
+			<h3 class="card-title">Reject Leave Application Details</h3>
 		</div>
 		<!-- /.card-header -->
 		<div class="card-body">
@@ -132,7 +132,7 @@
 				<div class="clearflex">
 					<a asp-action="Index" class="btn btn-danger push-left">Back to List</a>
 					@* 	<a asp-action="Edit" class="btn btn-primary push-right" asp-route-id="@Model.Id">Approve Leave Application</a> *@
-					<input type="submit" name="" value="Approve Leave Application" class="btn btn-primary" />
+					<input type="submit" name="" value="Reject Leave Application" class="btn btn-warning" />
 
 				</div>
 			</div>
