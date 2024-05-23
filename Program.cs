@@ -1,6 +1,8 @@
 using EmployeeManagementSystem.Data;
+using EmployeeManagementSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,13 +12,26 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 	options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+
+
+/*builder.Services.AddIdentity<IdentityUser, IdentityRole>
+	(options => options.SignIn.RequireConfirmedAccount = true)
+	.AddEntityFrameworkStores<ApplicationDbContext>();*/
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>
+	(options => options.SignIn.RequireConfirmedAccount = true)
 	.AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddRazorPages();
+builder.Services.AddSession();
 
 //Authentication/Authorization
 builder.Services.AddAuthentication();
 builder.Services.AddAuthorization();
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

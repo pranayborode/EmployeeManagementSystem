@@ -1,0 +1,78 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityRole>
+
+@{
+	ViewData["Title"] = "System Users";
+}
+
+<p>
+	<a asp-action="Create" class="btn btn-primary mt-3"><i class="fa fa-plus"></i> Add New Role</a>
+</p>
+<div class="card">
+	<div class="card-header">
+		<h3 class="card-title">Role List</h3>
+	</div>
+	<!-- /.card-header -->
+	<div class="card-body">
+		@if (Model.Any())
+		{
+			<table id="example" class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>
+							Role No
+						</th>
+						<th>
+							Role Name
+						</th>
+						
+						<th>
+							Action
+						</th>
+
+
+					</tr>
+				</thead>
+				<tbody>
+
+					@foreach (var item in Model)
+					{
+
+						<tr>
+							<td>
+								@Html.DisplayFor(modelItem => item.Id)
+							</td>
+							<td>
+								@Html.DisplayFor(modelItem => item.Name)
+							</td>
+							
+
+							<td>
+								<div class="btn-group">
+									<button type="button" class="btn btn-info">Action</button>
+									<button type="button" class="btn btn-info dropdown-toggle dropdown-icon" data-toggle="dropdown">
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<div class="dropdown-menu" role="menu">
+										<a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i> Edit</a>
+										<a class="dropdown-item" asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i> View</a>
+										<a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-trash"></i> Delete</a>
+
+									</div>
+								</div>
+							</td>
+						</tr>
+
+
+					}
+
+				</tbody>
+			</table>
+		}
+		else
+		{
+			<p>No data available in List</p>
+		}
+	</div>
+</div>
+

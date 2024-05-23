@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeManagementSystem.Data
 {
-	public class ApplicationDbContext : IdentityDbContext
+	public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	{
 		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
 			: base(options)
@@ -47,7 +47,7 @@ namespace EmployeeManagementSystem.Data
 		public DbSet<City> Cities { get; set; }
 
 		public DbSet<LeaveApplication> LeaveApplications { get; set; }
-
-
+	
+		public DbSet<SystemProfile> SystemProfile { get; set; }
 	}
 }
