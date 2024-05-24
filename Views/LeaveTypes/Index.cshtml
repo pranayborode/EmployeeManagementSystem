@@ -22,7 +22,7 @@
 					<th>
 						@Html.DisplayNameFor(model => model.Name)
 					</th>
-					@* <th>
+					<th>
 						@Html.DisplayNameFor(model => model.CreatedById)
 					</th>
 					<th>
@@ -33,7 +33,7 @@
 					</th>
 					<th>
 						@Html.DisplayNameFor(model => model.ModifiedOn)
-					</th> *@
+					</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -47,7 +47,7 @@
 						<td>
 							@Html.DisplayFor(modelItem => item.Name)
 						</td>
-						@* <td>
+						<td>
 							@Html.DisplayFor(modelItem => item.CreatedById)
 						</td>
 						<td>
@@ -58,7 +58,7 @@
 						</td>
 						<td>
 							@Html.DisplayFor(modelItem => item.ModifiedOn)
-						</td> *@
+						</td>
 						<td>
 							<a asp-action="Edit" asp-route-id="@item.Id"><i class="fa fa-edit"></i></a>
 							<a asp-action="Details" asp-route-id="@item.Id"><i class="fa fa-eye"></i></a>

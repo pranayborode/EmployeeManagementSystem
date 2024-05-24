@@ -269,7 +269,7 @@
 							<a href="#" class="nav-link">
 								<i class="nav-icon fas fa-table"></i>
 								<p>
-									System Administration
+									System Security
 									<i class="fas fa-angle-left right"></i>
 								</p>
 							</a>
@@ -287,49 +287,68 @@
 									</a>
 								</li>
 								<li class="nav-item">
-									<a asp-controller="Designations" asp-action="Index" class="nav-link">
+									<a asp-controller="SystemProfiles" asp-action="Index" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
-										<p>Designations</p>
+										<p>System Profile</p>
 									</a>
 								</li>
-								<li class="nav-item">
-									<a asp-controller="Departments" asp-action="Index" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Departments</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a asp-controller="Banks" asp-action="Index" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Banks</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a asp-controller="Countries" asp-action="Index" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Countries</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a asp-controller="Cities" asp-action="Index" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>Towns/Cities</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a asp-controller="SystemCodes" asp-action="Index" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>System Code</p>
-									</a>
-								</li>
-								<li class="nav-item">
-									<a asp-controller="SystemCodeDetails" asp-action="Index" class="nav-link">
-										<i class="far fa-circle nav-icon"></i>
-										<p>System Code Details</p>
-									</a>
-								</li>
+
 							</ul>
 						</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">
+							<i class="nav-icon fas fa-table"></i>
+							<p>
+								System Administration
+								<i class="fas fa-angle-left right"></i>
+							</p>
+						</a>
+						<ul class="nav nav-treeview">
+							
+							<li class="nav-item">
+								<a asp-controller="Designations" asp-action="Index" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Designations</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a asp-controller="Departments" asp-action="Index" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Departments</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a asp-controller="Banks" asp-action="Index" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Banks</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a asp-controller="Countries" asp-action="Index" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Countries</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a asp-controller="Cities" asp-action="Index" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>Towns/Cities</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a asp-controller="SystemCodes" asp-action="Index" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>System Code</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a asp-controller="SystemCodeDetails" asp-action="Index" class="nav-link">
+									<i class="far fa-circle nav-icon"></i>
+									<p>System Code Details</p>
+								</a>
+							</li>
+						</ul>
+					</li>
 					</ul>
 				</nav>
 				<!-- /.sidebar-menu -->
@@ -339,7 +358,7 @@
 
 		<!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
-			<!-- Main content --> 
+			<!-- Main content -->
 			<section class="content">
 				<div class="container-fluid">
 					@RenderBody()
@@ -442,7 +461,7 @@
 
 
 
-@* 
+@*
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -8,7 +8,7 @@
 
 		public int? ProfileId { get; set; }
 
-		private SystemProfile Profile { get; set; }
+		public SystemProfile Profile { get; set; }
 		
 		public ICollection<SystemProfile> Children { get; set; }
 

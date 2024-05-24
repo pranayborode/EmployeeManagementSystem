@@ -4,6 +4,7 @@ using EmployeeManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240523093532_SystemProfiles")]
+    partial class SystemProfiles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -120,47 +123,6 @@ namespace EmployeeManagementSystem.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUsers", (string)null);
-                });
-
-            modelBuilder.Entity("EmployeeManagementSystem.Models.Audit", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AffectedColumns")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("AuditType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NewValues")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OldValues")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PrimaryKey")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TableName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AuditLogs");
                 });
 
             modelBuilder.Entity("EmployeeManagementSystem.Models.Bank", b =>
@@ -600,9 +562,12 @@ namespace EmployeeManagementSystem.Data.Migrations
                     b.Property<int?>("ProfileId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SystemProfileId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ProfileId");
+                    b.HasIndex("SystemProfileId");
 
                     b.ToTable("SystemProfile");
                 });
@@ -809,12 +774,10 @@ namespace EmployeeManagementSystem.Data.Migrations
 
             modelBuilder.Entity("EmployeeManagementSystem.Models.SystemProfile", b =>
                 {
-                    b.HasOne("EmployeeManagementSystem.Models.SystemProfile", "Profile")
+                    b.HasOne("EmployeeManagementSystem.Models.SystemProfile", null)
                         .WithMany("Children")
-                        .HasForeignKey("ProfileId")
+                        .HasForeignKey("SystemProfileId")
                         .OnDelete(DeleteBehavior.Restrict);
-
-                    b.Navigation("Profile");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
